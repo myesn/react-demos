@@ -1,5 +1,0 @@
-https://www.bilibili.com/video/BV1fV411d7Ka?p=25
-
-https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html
-
-https://ant-design.gitee.io/index-cn
