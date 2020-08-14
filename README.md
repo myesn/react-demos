@@ -1,4 +1,4 @@
-## 该仓库的代码是观看[此视频合集](https://www.bilibili.com/video/BV1fV411d7Ka?p=25)后产生的
+## 该仓库的代码是观看[此视频合集](https://www.bilibili.com/video/BV1fV411d7Ka?p=25)后的成果
 
 ## 参考文档
 [reactjs.org/docs](https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html)
