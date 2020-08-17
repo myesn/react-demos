@@ -1,6 +1,6 @@
 ## 介绍
 
-该仓库的代码是观看[此视频合集](https://www.bilibili.com/video/BV1fV411d7Ka)后的成果
+该仓库的代码是观看[此视频合集](https://www.bilibili.com/video/BV1fV411d7Ka)后的成果(包括但不限于)
 
 [我的进度](https://www.bilibili.com/video/BV1fV411d7Ka?p=40)
 
@@ -8,7 +8,7 @@
 
 - [react 生态](https://github.com/enaqx/awesome-react)
   - [react](https://github.com/facebook/react)
-  - [react-controller-view-pattern](https://blog.andrewray.me/the-reactjs-controller-view-pattern/)
+    - [react-controller-view-pattern](https://blog.andrewray.me/the-reactjs-controller-view-pattern/)
 - [create-react-app](https://github.com/facebook/create-react-app)
 - [react-router](https://github.com/ReactTraining/react-router)
 - [flux](#)
