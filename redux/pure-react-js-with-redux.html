@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <!-- Don't use this in production: -->
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.11.4/babel.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/redux@4.0.5/dist/redux.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.development.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.development.min.js"></script>
+    <script type="text/babel">
+        const { createStore } = Redux;
+
+        // reducer
+        const counter = (state = 0, action) => {
+            switch (action.type) {
+                case 'increment':
+                    return state + 1;
+                case 'decrement':
+                    return state - 1;
+                default:
+                    return state;
+            }
+        };
+
+        // 创建 store 并绑定 reducer
+        const store = createStore(counter);
+
+        // 创建一个 Counter component
+        const Counter = ({
+            value,
+            onIncrement,
+            onDecrement
+        }) => (
+                <div>
+                    <h1>{value}</h1>
+                    <button onClick={onIncrement}>+</button>
+                    <button onClick={onDecrement}>-</button>
+                </div>
+            );
+
+        const render = () => {
+            ReactDOM.render(
+                <Counter
+                    value={store.getState()}
+                    onIncrement={() => store.dispatch({ type: 'increment' })}
+                    onDecrement={() => store.dispatch({ type: 'decrement' })}
+                />,
+                document.getElementById('container')
+            );
+        };
+
+        // change listener 监听状态变化，一旦变化则触发回调函数
+        const unsubscribe = store.subscribe(render);
+
+        // 首次手动渲染
+        render();
+    </script>
+</body>
+
+</html>

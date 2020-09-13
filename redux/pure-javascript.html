@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js"></script>
+    <script>
+        const { createStore } = Redux;
+
+        // reducer
+        const counter = (state = 0, action) => {
+            switch (action.type) {
+                case 'increment':
+                    return state + 1;
+                case 'decrement':
+                    return state - 1;
+                default:
+                    return state;
+            }
+        };
+
+        // 创建 store 并绑定 reducer
+        const store = createStore(counter);
+
+        const unsubscribe = store.subscribe(() => {
+            console.log(`next state: ${store.getState()}`);
+        });
+
+        console.log(`state: ${store.getState()}`);
+
+        // dispatch action: increment
+        console.log(`dispatch action: increment`);
+        store.dispatch({ type: 'increment' });
+
+        // dispatch action: decrement
+        console.log(`dispatch action: decrement`);
+        store.dispatch({ type: 'decrement' });
+    </script>
+</body>
+
+</html>

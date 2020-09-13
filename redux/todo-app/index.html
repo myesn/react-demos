@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h5>必须通过 http 协议访问本网页，如果从 file:// 协议打开会出现跨域加载错误（因为 jsx 语法的文件由 babel 通过 xhr 去获取）</h1>
+    <div id="container"></div>
+
+    <!-- Don't use this in production: -->
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.11.4/babel.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.development.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.development.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/redux@4.0.5/dist/redux.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-redux@7.2.1/dist/react-redux.min.js"></script>
+
+    <script>
+      const { createStore, combineReducers } = Redux;
+      const { Provider, connect } = ReactRedux;
+    </script>
+
+    <script src="./shared/constants.js"></script>
+    <script src="./shared/action-creators.js"></script>
+    <script src="./shared/reducers.js"></script>
+
+    <!-- 以下组件都是 jsx 的语法，需要加上 type="text/babel"，babel 会将 jsx 处理成正常的 js 语法，否则浏览器无法解析 -->
+    <script src="./components/AddTodo.js" type="text/babel"></script>
+    <script src="./components/Todo.js" type="text/babel"></script>
+    <script src="./components/TodoList.js" type="text/babel"></script>
+    <script src="./components/VisibleTodoList.js" type="text/babel"></script>
+    <script src="./components/Link.js" type="text/babel"></script>
+    <script src="./components/FilterLink.js" type="text/babel"></script>
+    <script src="./components/Footer.js" type="text/babel"></script>
+    <script src="./components/TodoApp.js" type="text/babel"></script>
+
+    <script type="text/babel">
+      ReactDOM.render(
+        <Provider store={createStore(rootReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+          <TodoApp />
+        </Provider>,
+        document.getElementById('container')
+      );
+    </script>
+  </body>
+</html>

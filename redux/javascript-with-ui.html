@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1 id="state"></h1>
+
+        <button id="increment">+</button>
+        <button id="decrement">-</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js"></script>
+    <script>
+        const { createStore } = Redux;
+
+        const $ = document.querySelector.bind(document);
+
+        // reducer
+        const counter = (state = 0, action) => {
+            switch (action.type) {
+                case 'increment':
+                    return state + 1;
+                case 'decrement':
+                    return state - 1;
+                default:
+                    return state;
+            }
+        }
+
+        // 创建 store 并绑定 reducer
+        const store = createStore(counter);
+
+        const render = () => {
+            $('#state').innerText = store.getState();
+        }
+
+        // change listener 监听状态变化, 一旦变化则触发回调函数
+        const unsubscribe = store.subscribe(render);
+        
+        // 首次手动渲染
+        render();
+
+        $('#increment').addEventListener('click', () => {
+            // dispatch action: increment
+            store.dispatch({ type: 'increment' });
+        });
+
+        $('#decrement').addEventListener('click', () => {
+            // dispatch action: decrement
+            store.dispatch({ type: 'decrement' });
+        });
+    </script>
+</body>
+
+</html>
