@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as counterActions from './actions/counter';
 import { bindActionCreators } from 'redux';
 // import Parent from './components/Parent';
-import UserManager from './components/UserManager';
+import UserManager from './components/User/UserManager';
 
 class App extends React.Component {
   render() {

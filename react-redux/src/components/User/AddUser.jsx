@@ -2,7 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { addUser } from '../actions/user';
+import { addUser } from '../../actions/user';
 
 class AddUser extends React.Component {
   constructor() {

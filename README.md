@@ -4,7 +4,7 @@
 
 ~~[我的进度](https://www.bilibili.com/video/BV1fV411d7Ka?p=40)~~
 
-上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 p47
+上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 p47 (最后一次看完的集数)
 
 ## 参考文档
 
@@ -23,6 +23,8 @@
   - [redux](https://github.com/reduxjs/redux)
     - [middleware](#)
       - [redux-logger](https://github.com/evgenyrodionov/redux-logger)
+      - [redux-thunk](https://github.com/reduxjs/redux-thunk)
+    - [redux devtools extension](https://github.com/zalmoxisus/redux-devtools-extension)
   - [react-redux](https://www.github.com/reduxjs/react-redux)
   - [react-redux-cn](http://cn.redux.js.org)
   - [redux-toolkit](https://github.com/reduxjs/redux-toolkit)
@@ -42,3 +44,9 @@
 - [tool](#)
   - [craco](https://github.com/gsoft-inc/craco)
   - [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
+
+## 使用到的工具
+
+- [jsonbin.io](https://jsonbin.io) JSON storage server
+- [react developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- [redux-devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
