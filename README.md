@@ -4,15 +4,19 @@
 
 ~~[我的进度](https://www.bilibili.com/video/BV1fV411d7Ka?p=40)~~
 
-上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 p52 (第 5 章看完)
+上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 6, page 6
 
 ## 参考文档
 
 - [react 生态](https://github.com/enaqx/awesome-react)
   - [react](https://github.com/facebook/react)
     - [react-controller-view-pattern](https://blog.andrewray.me/the-reactjs-controller-view-pattern/)
+  - [formik](https://github.com/formium/formik)
+  - [downshift](https://github.com/downshift-js/downshift)
+  - [react-motion](https://github.com/chenglou/react-motion)
 - [create-react-app](https://github.com/facebook/create-react-app)
 - [react-router](https://github.com/ReactTraining/react-router)
+- [react-router-dom](https://github.com/ReactTraining/react-router)
 - [flux](#)
   - [flux for beginners](https://blog.andrewray.me/flux-for-stupid-people/)
   - [flux 架构入门](http://www.ruanyifeng.com/blog/2016/01/flux.html)
@@ -44,6 +48,7 @@
 - [tool](#)
   - [craco](https://github.com/gsoft-inc/craco)
   - [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
+- [immutable js](https://immutable-js.github.io/immutable-js/)
 
 ## 使用到的工具
 
