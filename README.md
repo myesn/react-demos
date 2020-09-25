@@ -4,7 +4,7 @@
 
 ~~[我的进度](https://www.bilibili.com/video/BV1fV411d7Ka?p=40)~~
 
-上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 6, page 6
+上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 6 完结
 
 ## 参考文档
 

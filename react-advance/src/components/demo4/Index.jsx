@@ -6,7 +6,7 @@ import React from 'react';
 
 const withFetch = (ComposeComponent) => {
   return class extends React.Component {
-    render() {      
+    render() {
       return <ComposeComponent {...this.props} />;
     }
   };
