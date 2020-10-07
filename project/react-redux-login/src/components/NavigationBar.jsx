@@ -1,9 +1,57 @@
 import React from 'react';
-
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 
-export default class NavigationBar extends React.Component {
+import { signout } from '../actions/signin';
+import { addMessage } from '../actions/message';
+
+class NavigationBar extends React.Component {
+  onSignOut = () => {
+    const { signout, addMessage } = this.props.actions;
+
+    signout();
+
+    addMessage({
+      type: 'success',
+      text: '登出成功',
+    });
+  };
+
   render() {
+    const { isAuthenticated } = this.props;
+
+    let liView;
+    if (isAuthenticated) {
+      liView = (
+        <>
+          <li className='nav-item'>
+            <button
+              type='button'
+              className='btn btn-danger'
+              onClick={this.onSignOut}>
+              Sign out
+            </button>
+          </li>
+        </>
+      );
+    } else {
+      liView = (
+        <>
+          <li className='nav-item'>
+            <NavLink exact strict className='nav-link' to='/signup'>
+              Sign up
+            </NavLink>
+          </li>
+          <li className='nav-item'>
+            <NavLink exact strict className='nav-link' to='/signin'>
+              Sign in
+            </NavLink>
+          </li>
+        </>
+      );
+    }
+
     return (
       <div className='navbar navbar-expand-lg navbar-light bg-light'>
         <div className='container'>
@@ -33,10 +81,11 @@ export default class NavigationBar extends React.Component {
                 </NavLink>
               </li>
               <li className='nav-item'>
-                <NavLink exact strict className='nav-link' to='/signup'>
-                  Sign up
+                <NavLink exact strict className='nav-link' to='/user/list'>
+                  User List
                 </NavLink>
               </li>
+              {liView}
             </ul>
           </div>
         </div>
@@ -44,3 +93,17 @@ export default class NavigationBar extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.user.isAuthenticated,
+  };
+};
+
+const mapDispatchToProps = (dispath) => {
+  return {
+    actions: bindActionCreators({ signout, addMessage }, dispath),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);

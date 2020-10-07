@@ -40,7 +40,11 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <!-- 
+      千万不要引入 bootstrap 的js，比如 alert 的关闭按钮， bootstrap 会移除 dom，然后 react 里面也会操作，
+      导致 react diff 之后，在操作 dom 的时候，找不到 dom，因为已经被 bootstrap 移除了
+    -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script> -->
   </body>
 </html>

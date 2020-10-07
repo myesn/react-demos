@@ -8,6 +8,7 @@ class Message extends React.PureComponent {
 
   render() {
     const { type, text } = this.props;
+
     return (
       <div
         className={classNames('alert', {

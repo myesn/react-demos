@@ -60,7 +60,7 @@ class Form extends React.Component {
             any: {
               isLoading: true,
               isCompleted: false,
-              error: response.data.error,
+              error: response ? response.data.error : '接口超时',
             },
           },
         });
@@ -100,15 +100,6 @@ class Form extends React.Component {
     // 如果设置的话，控制台就会报错，意思就是组件已被卸载，不能再操作状态更新
     signup(this.state.form)
       .then((response) => {
-        // this.setState({
-        //   error: null,
-        //   form: {
-        //     username: '',
-        //     password: '',
-        //     passwordConfirm: '',
-        //   },
-        // });
-
         addMessage({
           type: 'success',
           text: '注册成功，欢迎加入',
@@ -123,27 +114,21 @@ class Form extends React.Component {
           actionState: {
             ...this.state.actionState,
             signup: {
-              error: response.data.error,
               isLoading: false,
               isCompleted: true,
+              error: response ? response.data.error : '接口超时',
             },
           },
         });
       })
-      .then(() => {
-        // 总是会被执行的 then
-        // this.setState({
-        //   isLoading: false,
-        //   isCompleted: true,
-        // });
-      });
+      .then(() => {});
   };
 
   render() {
     const { form, actionState } = this.state;
 
-    let anyErrorView;
-    let signupCompletedView;
+    let anyErrorView = <></>;
+    let signupCompletedView = <></>;
     let signupBtnText = 'Sign up';
     let signupBtnDisabled = false;
 

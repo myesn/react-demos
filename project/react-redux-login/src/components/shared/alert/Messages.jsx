@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { removeMessage } from '../../../actions/message';
 import Message from './Message';
 
-class Messages extends React.Component {
+class Messages extends React.PureComponent {
   onClose = (id) => {
     this.props.actions.removeMessage(id);
   };

@@ -1,9 +1,9 @@
-import http from './axios';
+import http from '../services/axios';
 
 export const signup = (params) => {
   // redux-trunk
   return (dispatch) => {
-    return http.post('/user/create', params);
+    return http.post('/user/signup', params);
   };
 };
 
