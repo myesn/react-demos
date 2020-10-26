@@ -1,0 +1,29 @@
+.title {
+  text-align: center;
+  margin: 0;
+}
+
+.panel {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding: 25px 0 0;
+  background: #fff;
+  width: 100%;
+  -webkit-flex-flow: wrap;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+
+  .box {
+    width: 25%;
+    margin-bottom: 25px;
+    text-align: center;
+
+    .img {
+      width: 100%;
+    }
+  }
+}

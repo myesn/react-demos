@@ -2,13 +2,13 @@
 
 ~~该仓库的代码是观看[此视频合集](https://www.bilibili.com/video/BV1fV411d7Ka)后的成果(包括但不限于)~~
 
-上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 7 已完结
+上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 8, video 9 完结
 
 ## 参考文档
 
 - [react 生态](https://github.com/enaqx/awesome-react)
   - [react](https://github.com/facebook/react)
-    - [react-controller-view-pattern](https://blog.andrewray.me/the-reactjs-controller-view-pattern/)
+    - [react-controller-view-pattern](https://blog.andrewray.me/the-reactjs-controller-view-pattern)
   - [formik](https://github.com/formium/formik)
   - [downshift](https://github.com/downshift-js/downshift)
   - [react-motion](https://github.com/chenglou/react-motion)
@@ -16,7 +16,7 @@
 - [react-router](https://github.com/ReactTraining/react-router)
 - [react-router-dom](https://github.com/ReactTraining/react-router)
 - [flux](#)
-  - [flux for beginners](https://blog.andrewray.me/flux-for-stupid-people/)
+  - [flux for beginners](https://blog.andrewray.me/flux-for-stupid-people)
   - [flux 架构入门](http://www.ruanyifeng.com/blog/2016/01/flux.html)
   - [flux-comparsion](https://github.com/voronianski/flux-comparison)
   - [fackbook-flux](https://github.com/facebook/flux)
@@ -46,7 +46,15 @@
 - [tool](#)
   - [craco](https://github.com/gsoft-inc/craco)
   - [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
-- [immutable js](https://immutable-js.github.io/immutable-js/)
+- [immutable js](https://immutable-js.github.io/immutable-js)
+- [sass](http://www.ruanyifeng.com/blog/2012/06/sass.html)
+- [zarm design](https://zarm.design)
+- [ramda](https://github.com/ramda/ramda)
+- [iconfont](https://www.iconfont.cn)
+- [awesome react components](https://github.com/brillout/awesome-react-components)
+- [Faker.js](https://github.com/marak/Faker.js)
+- [axios](https://github.com/axios/axios)
+  - [moxios](https://github.com/axios/moxios)
 
 ## 使用到的工具
 
