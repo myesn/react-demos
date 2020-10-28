@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 
 import 'zarm/dist/zarm.min.css';
 import './index.scss';
-import './assets/css/icomoon.css';
-import './assets/css/iconfont.css';
+// import './assets/css/icomoon.css';
+// import './assets/css/iconfont.css';
 
 import Router from './router';
 

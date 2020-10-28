@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 
 function Box({ id, title, img }) {
   return (
-    <div key={id} className={styles.box}>
+    <div className={styles.box}>
       <Button
         size='lg'
         shape='circle'
@@ -23,7 +23,7 @@ function Title({ text }) {
 class View extends PureComponent {
   render() {
     const { title, items } = this.props;
-    const boxesView = items.map((item) => <Box {...item} />);
+    const boxesView = items.map((item) => <Box key={item.id} {...item} />);
 
     return (
       <>
