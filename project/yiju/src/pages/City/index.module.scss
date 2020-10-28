@@ -1,0 +1,25 @@
+.current {
+  text-align: center;
+}
+
+.panel {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding: 25px 0 0;
+  background: #fff;
+  width: 100%;
+  -webkit-flex-flow: wrap;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+
+  .box {
+    width: 33.33%;
+    margin-bottom: 25px;
+    padding: 0 10px 0 10px;
+    text-align: center;
+  }
+}
