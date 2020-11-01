@@ -1,9 +1,12 @@
 import React, { PureComponent } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { NavBar, Icon, Button } from 'zarm';
 
-import styles from './index.module.scss';
-
 import api from '../../api';
+import { update } from '../../actions/city';
+
+import styles from './index.module.scss';
 
 function Header({ onLeftClick }) {
   return (
@@ -34,7 +37,7 @@ function HotCity({ cities, onCityClick }) {
 
   return (
     <>
-      <div>热门城市</div>
+      <h4 className={styles.hot_city_title}>热门城市：</h4>
       <div className={styles.panel}>{contentRender()}</div>
     </>
   );
@@ -42,7 +45,6 @@ function HotCity({ cities, onCityClick }) {
 
 class City extends PureComponent {
   state = {
-    city: '成都',
     hotcities: [],
   };
 
@@ -53,18 +55,21 @@ class City extends PureComponent {
   }
 
   onCityClick = (city) => {
-    console.log(city);
+    const { cityActions, history } = this.props;
+
+    cityActions.update(city);
+    history.push('/home');
   };
 
   render() {
-    const { history } = this.props;
-    const { city, hotcities } = this.state;
+    const { city, history } = this.props;
+    const { hotcities } = this.state;
 
     return (
       <>
         <Header
           onLeftClick={() => {
-            history.push('/home')
+            history.push('/home');
           }}
         />
         <Current city={city} />
@@ -74,4 +79,11 @@ class City extends PureComponent {
   }
 }
 
-export default City;
+const mapStateToProps = (state) => ({
+  city: state.city,
+});
+const mapDispatchToProps = (dispatch) => ({
+  cityActions: bindActionCreators({ update }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(City);

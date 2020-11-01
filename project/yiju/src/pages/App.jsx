@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -9,8 +9,7 @@ import * as cityActions from '../actions/city';
  *  1. 城市初始化
  */
 class App extends PureComponent {
-
-  componentDidMount(){
+  componentDidMount() {
     this.props.cityActions.init('成都');
   }
 

@@ -5,11 +5,11 @@ import { NavBar, SearchBar } from 'zarm';
 import Iconfont from '../../../components/Iconfont';
 import styles from './index.module.scss';
 
-function City() {
+function City({ text }) {
   return (
     <Link className={styles.city} to='/city'>
       <Iconfont type='iconchengshi' size='sm' />
-      成都
+      {text}
     </Link>
   );
 }
@@ -45,7 +45,15 @@ function Right() {
 
 class Header extends PureComponent {
   render() {
-    return <NavBar left={<City />} title={<Search />} right={<Right />} />;
+    const { city } = this.props;
+
+    return (
+      <NavBar
+        left={<City text={city} />}
+        title={<Search />}
+        right={<Right />}
+      />
+    );
   }
 }
 

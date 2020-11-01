@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 
 import Header from './Header';
 import Swiper from '../../components/Swiper';
@@ -18,10 +19,11 @@ class Home extends PureComponent {
 
   render() {
     const { swiperItems } = this.state;
+    const { city } = this.props;
 
     return (
       <>
-        <Header />
+        <Header city={city} />
         <Swiper items={swiperItems} autoPlay={false} />
         <HotData />
       </>
@@ -29,4 +31,8 @@ class Home extends PureComponent {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  city: state.city,
+});
+
+export default connect(mapStateToProps)(Home);
