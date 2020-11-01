@@ -1,1 +1,14 @@
 // @import '~normalize.css' // zarm 库已经用了该 css
+
+.za-nav-bar {
+  background: var(--theme-primary);
+  color: white;
+}
+
+.za-search-bar {
+  background: var(--theme-primary);
+}
+
+.za-search-bar__cancel {
+  color: white;
+}

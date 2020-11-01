@@ -64,7 +64,7 @@ class City extends PureComponent {
       <>
         <Header
           onLeftClick={() => {
-            history.goBack();
+            history.push('/home')
           }}
         />
         <Current city={city} />

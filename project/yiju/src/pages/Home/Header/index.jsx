@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { NavBar, SearchBar } from 'zarm';
 
 import Iconfont from '../../../components/Iconfont';
-import './index.scss';
+import styles from './index.module.scss';
 
 function City() {
   return (
-    <Link className='city' to='/city'>
-      成都
+    <Link className={styles.city} to='/city'>
       <Iconfont type='iconchengshi' size='sm' />
+      成都
     </Link>
   );
 }

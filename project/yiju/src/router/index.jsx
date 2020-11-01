@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
+import App from '../pages/App';
 import Home from '../pages/Home';
 import Life from '../pages/Life';
 import Shop from '../pages/Shop';
@@ -14,17 +15,19 @@ class Router extends PureComponent {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <Route exact path='/'>
-            <Redirect to='/home' />
-          </Route>
-          <Route path='/home' component={withNavigation(Home)} />
-          <Route path='/life' component={withNavigation(Life)} />
-          <Route path='/shop' component={withNavigation(Shop)} />
-          <Route path='/mine' component={withNavigation(Mine)} />
-          <Route path='/city' component={City} />
-          <Route path='*' component={NotFound} />
-        </Switch>
+        <App path='/'>
+          <Switch>
+            <Route exact path='/'>
+              <Redirect to='/home' />
+            </Route>
+            <Route path='/home' component={withNavigation(Home)} />
+            <Route path='/life' component={withNavigation(Life)} />
+            <Route path='/shop' component={withNavigation(Shop)} />
+            <Route path='/mine' component={withNavigation(Mine)} />
+            <Route path='/city' component={City} />
+            <Route path='*' component={NotFound} />
+          </Switch>
+        </App>
       </BrowserRouter>
     );
   }
