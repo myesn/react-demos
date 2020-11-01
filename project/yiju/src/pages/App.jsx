@@ -1,6 +1,7 @@
 import { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import store from 'store';
 
 import * as cityActions from '../actions/city';
 
@@ -10,7 +11,9 @@ import * as cityActions from '../actions/city';
  */
 class App extends PureComponent {
   componentDidMount() {
-    this.props.cityActions.init('成都');
+    const localCity = store.get('city');
+
+    this.props.cityActions.init(localCity || '成都');
   }
 
   render() {
@@ -18,11 +21,8 @@ class App extends PureComponent {
   }
 }
 
-const mapStateToProps = (state) => ({
-  city: state.city,
-});
 const mapDispatchToProps = (dispath) => ({
   cityActions: bindActionCreators(cityActions, dispath),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

@@ -4,8 +4,8 @@ import base from './base';
 import { get } from '../utils/http';
 
 const hotdata = {
-  data() {
-    return get(base.hotdata);
+  data(city) {
+    return get(base.hotdata, { city });
   },
 };
 

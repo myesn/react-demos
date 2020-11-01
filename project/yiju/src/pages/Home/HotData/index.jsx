@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { isEmpty } from 'ramda';
+import store from 'store';
 
 import api from '../../../api';
 import View from './View';
@@ -11,13 +12,21 @@ class HotData extends PureComponent {
   };
 
   componentDidMount() {
-    api.hotdata.data().then((res) => {
+    this.initData();
+  }
+
+  initData = () => {
+    let { city } = this.props;
+    city = city || store.get('city', '成都');
+    if (!city) return;
+
+    api.hotdata.data(city).then((res) => {
       this.setState({ data1: res.data });
     });
-    api.hotdata.data().then((res) => {
+    api.hotdata.data(city).then((res) => {
       this.setState({ data2: res.data });
     });
-  }
+  };
 
   render() {
     const { data1, data2 } = this.state;

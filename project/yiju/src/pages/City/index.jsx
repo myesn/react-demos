@@ -58,6 +58,7 @@ class City extends PureComponent {
     const { cityActions, history } = this.props;
 
     cityActions.update(city);
+
     history.push('/home');
   };
 

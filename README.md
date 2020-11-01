@@ -2,7 +2,7 @@
 
 ~~该仓库的代码是观看[此视频合集](https://www.bilibili.com/video/BV1fV411d7Ka)后的成果(包括但不限于)~~
 
-上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 8, video 13 完结
+上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 8, video 14 完结
 
 ## 参考文档
 
@@ -56,6 +56,7 @@
 - [axios](https://github.com/axios/axios)
   - [moxios](https://github.com/axios/moxios)
 - [normalize.css](https://github.com/necolas/normalize.css)
+- [store.js](https://github.com/marcuswestin/store.js)
 
 ## 使用到的工具
 

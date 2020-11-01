@@ -1,4 +1,4 @@
-// 首页热门和推荐接口
+// 热门城市
 
 import base from './base';
 import { get } from '../utils/http';

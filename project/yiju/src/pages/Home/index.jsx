@@ -25,7 +25,7 @@ class Home extends PureComponent {
       <>
         <Header city={city} />
         <Swiper items={swiperItems} autoPlay={false} />
-        <HotData />
+        <HotData city={city} />
       </>
     );
   }

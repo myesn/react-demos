@@ -2,13 +2,13 @@ import moxios from 'moxios';
 import faker from 'faker';
 import { range, map } from 'ramda';
 
-const domain = '/api/';
-
 moxios.install();
 faker.locale = 'zh_CN';
 
+const domain = '/api/';
+
 // 首页-热门数据
-moxios.stubRequest(domain + 'hotdata', {
+moxios.stubRequest(new RegExp(`${domain}hotdata.*`), {
   status: 200,
   get response() {
     return map(() => {
