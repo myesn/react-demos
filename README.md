@@ -2,16 +2,17 @@
 
 ~~该仓库的代码是观看[此视频合集](https://www.bilibili.com/video/BV1fV411d7Ka)后的成果(包括但不限于)~~
 
-上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 8, video 16 完结
+上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 8, video 17 9：49
 
 ## 参考文档
 
 - [react 生态](https://github.com/enaqx/awesome-react)
   - [react](https://github.com/facebook/react)
     - [react-controller-view-pattern](https://blog.andrewray.me/the-reactjs-controller-view-pattern)
+    - [react-lifecycle-methods-diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram)
   - [formik](https://github.com/formium/formik)
   - [downshift](https://github.com/downshift-js/downshift)
-  - [react-motion](https://github.com/chenglou/react-motion)
+  - [react-motion](https://github.com/chenglou/react-motion)  
 - [React Starter Kit]  
   - [create-react-app](https://github.com/facebook/create-react-app)
   - [nano-react-app](https://github.com/nano-react-app/nano-react-app)

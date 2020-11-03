@@ -34,3 +34,23 @@ moxios.stubRequest(domain + 'hotcity', {
     }, range(1, 13));
   },
 });
+
+// 搜索
+moxios.stubRequest(new RegExp(`${domain}search.*`), {
+  status: 200,
+  get response() {
+    return {
+      hasMore: true,
+      data: map(() => {
+        return {
+          id: faker.random.uuid(),
+          title: faker.name.title(),
+          houseType: faker.random.words(),
+          price: faker.commerce.price(),
+          rentType: faker.random.word(),
+          img: faker.image.business(),
+        };
+      }, range(1, 21)),
+    };
+  },
+});
