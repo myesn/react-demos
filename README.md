@@ -2,7 +2,7 @@
 
 ~~该仓库的代码是观看[此视频合集](https://www.bilibili.com/video/BV1fV411d7Ka)后的成果(包括但不限于)~~
 
-上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 8, video 14 完结
+上面的链接地址已失效，具体参考本地下载的视频文件，目前进度 chapter 8, video 15 完结
 
 ## 参考文档
 
@@ -12,7 +12,9 @@
   - [formik](https://github.com/formium/formik)
   - [downshift](https://github.com/downshift-js/downshift)
   - [react-motion](https://github.com/chenglou/react-motion)
-- [create-react-app](https://github.com/facebook/create-react-app)
+- [React Starter Kit]  
+  - [create-react-app](https://github.com/facebook/create-react-app)
+  - [nano-react-app](https://github.com/nano-react-app/nano-react-app)
 - [react-router](https://github.com/ReactTraining/react-router)
 - [react-router-dom](https://github.com/ReactTraining/react-router)
 - [flux](#)
@@ -57,6 +59,10 @@
   - [moxios](https://github.com/axios/moxios)
 - [normalize.css](https://github.com/necolas/normalize.css)
 - [store.js](https://github.com/marcuswestin/store.js)
+
+## 常见问题解决方案
+
+  - [why running yarn upgrade does not update my package.json](https://dev.to/wgao19/why-running-yarn-upgrade-does-not-update-my-package-json-3mon)
 
 ## 使用到的工具
 
