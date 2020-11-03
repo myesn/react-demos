@@ -3,12 +3,22 @@ import { SearchBar } from 'zarm';
 
 class Searcher extends PureComponent {
   render() {
-    const { value, onSubmit, onChange, onClear, onCancel } = this.props;
+    const {
+      value,
+      onSubmit,
+      onChange,
+      onClear,
+      onCancel,
+      showCancel,
+      clearable,
+      shape,
+    } = this.props;
 
     return (
       <SearchBar
-        shape='round'
-        clearable={true}
+        shape={shape}
+        clearable={clearable}
+        showCancel={showCancel}
         value={value}
         onSubmit={(value) => {
           onSubmit && onSubmit(value);
@@ -32,5 +42,11 @@ class Searcher extends PureComponent {
     );
   }
 }
+
+Searcher.defaultProps = {
+  showCancel: false,
+  clearable: true,
+  shape: 'round',
+};
 
 export default Searcher;
