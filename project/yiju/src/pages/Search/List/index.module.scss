@@ -1,0 +1,30 @@
+.box {
+  width: 100%;
+  height: 280px;
+
+  .img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .info_container {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    top: -102px;
+    background-color: #beedc0;
+    opacity: 0.8;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+
+    .item {
+      width: 100%;
+      text-align: center;
+      overflow: hidden; //超出的文本隐藏
+      text-overflow: ellipsis; //溢出用省略号显示
+      white-space: nowrap; //溢出不换行
+    }
+  }
+}

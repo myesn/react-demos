@@ -25,6 +25,8 @@ class Header extends PureComponent {
   };
 
   handleSearcherSubmit = (value) => {
+    if (!value) return;
+
     const { history } = this.props;
 
     this.handleSearcherChange(value);

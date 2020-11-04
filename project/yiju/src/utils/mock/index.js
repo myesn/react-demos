@@ -41,14 +41,15 @@ moxios.stubRequest(new RegExp(`${domain}search.*`), {
   get response() {
     return {
       hasMore: true,
-      data: map(() => {
+      items: map(() => {
         return {
           id: faker.random.uuid(),
           title: faker.name.title(),
           houseType: faker.random.words(),
           price: faker.commerce.price(),
           rentType: faker.random.word(),
-          img: faker.image.business(),
+          img:
+            'https://static01.imgkr.com/temp/1f7bb3aa1c8e4f93bc33c2789a064cda.jpg', //faker.image.business(),
         };
       }, range(1, 21)),
     };

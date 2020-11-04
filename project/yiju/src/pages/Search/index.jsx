@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { Panel } from 'zarm';
 
 import api from '../../api';
 
 import Header from './Header';
+import List from './List';
 
 class Search extends PureComponent {
   state = {
@@ -12,11 +14,13 @@ class Search extends PureComponent {
   };
 
   componentDidMount() {
-    this.initKeyword().then(() => {
-      const { keyword } = this.state;
+    this.initKeyword()
+      .then(() => {
+        const { keyword } = this.state;
 
-      this.handleSearcherSubmit(keyword);
-    });
+        this.handleSearcherSubmit(keyword);
+      })
+      .catch(() => {});
   }
 
   initKeyword = () => {
@@ -34,7 +38,8 @@ class Search extends PureComponent {
   };
 
   handleSearcherChange = (value) => {
-    this.setState({ keyword: value });
+    // 只有当 submit 之后，才需要改变 keyword 的值
+    //this.setState({ keyword: value });
   };
 
   handleSearcherSubmit = (value) => {
@@ -55,9 +60,9 @@ class Search extends PureComponent {
   };
 
   handleSearcherClear = () => {
-    this.correctUrl('');
-
-    this.handleSearcherChange('');
+    // 只有当 submit 之后，才需要改变 keyword 的值
+    // this.correctUrl('');
+    // this.setState({ keyword: '' });
   };
 
   handleSearcherCancel = () => {
@@ -76,7 +81,7 @@ class Search extends PureComponent {
   };
 
   render() {
-    const { keyword } = this.state;
+    const { keyword, data } = this.state;
 
     return (
       <>
@@ -87,6 +92,9 @@ class Search extends PureComponent {
           onSearcherClear={this.handleSearcherClear}
           onSearcherCancel={this.handleSearcherCancel}
         />
+        <Panel title={`关键字 ${keyword} 的搜索结果`}>
+          <List data={data} />
+        </Panel>
       </>
     );
   }
