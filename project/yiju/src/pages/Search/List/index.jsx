@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { isNil, isEmpty, map } from 'ramda';
-//import { Pull, BackToTop  } from 'zarm' // 下滑获取更多数据
 
 import styles from './index.module.scss';
 
@@ -23,13 +22,13 @@ class List extends PureComponent {
     map((item) => <Item key={item.id} {...item} />, items);
 
   render() {
-    const { data } = this.props;
+    const { items } = this.props;
 
-    if (isNil(data) || isNil(data.items) || isEmpty(data.items)) {
+    if (isNil(items) || isEmpty(items)) {
       return '暂无数据';
     }
 
-    return <div>{this.contentRender(data.items)}</div>;
+    return this.contentRender(items);
   }
 }
 

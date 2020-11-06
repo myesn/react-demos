@@ -1,16 +1,19 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { Panel } from 'zarm';
+import { Panel, BackToTop } from 'zarm';
+import { concat } from 'ramda';
 
 import api from '../../api';
 
 import Header from './Header';
 import List from './List';
+import LoadMore from '../../components/LoadMore';
 
 class Search extends PureComponent {
   state = {
     data: {},
     keyword: '',
+    page: 0,
   };
 
   componentDidMount() {
@@ -54,8 +57,8 @@ class Search extends PureComponent {
 
     this.correctUrl(value);
 
-    api.search.data(city, value).then((res) => {
-      this.setState({ data: res.data });
+    api.search.data(city, value, 0).then((res) => {
+      this.setState({ data: res.data, page: 0 });
     });
   };
 
@@ -71,6 +74,28 @@ class Search extends PureComponent {
     history.push('home');
   };
 
+  handleLoadMore = () => {
+    const { hasMore } = this.state.data;
+    if (!hasMore) {
+      return;
+    }
+
+    const { city } = this.props;
+    const { keyword, data, page } = this.state;
+    const { items } = data;
+
+    api.search.data(city, keyword).then((res) => {
+      const data = res.data;
+      this.setState({
+        data: {
+          items: concat(items, data.items),
+          hasMore: data.hasMore,
+        },
+        page: page + 1,
+      });
+    });
+  };
+
   correctUrl = (keyword) => {
     const { history } = this.props;
 
@@ -82,6 +107,7 @@ class Search extends PureComponent {
 
   render() {
     const { keyword, data } = this.state;
+    const { items, hasMore } = data;
 
     return (
       <>
@@ -93,8 +119,26 @@ class Search extends PureComponent {
           onSearcherCancel={this.handleSearcherCancel}
         />
         <Panel title={`关键字 ${keyword} 的搜索结果`}>
-          <List data={data} />
+          <List items={items} />
+          {hasMore && <LoadMore onLoadMore={this.handleLoadMore} />}
         </Panel>
+        <BackToTop>
+          <div
+            style={{
+              width: 60,
+              height: 60,
+              lineHeight: '60px',
+              textAlign: 'center',
+              backgroundColor: '#fff',
+              color: '#999',
+              fontSize: 20,
+              borderRadius: 30,
+              boxShadow: '0 2px 10px 0 rgba(0, 0, 0, 0.2)',
+              cursor: 'pointer',
+            }}>
+            Up
+          </div>
+        </BackToTop>
       </>
     );
   }

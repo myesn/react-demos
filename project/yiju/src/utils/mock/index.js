@@ -40,7 +40,7 @@ moxios.stubRequest(new RegExp(`${domain}search.*`), {
   status: 200,
   get response() {
     return {
-      hasMore: true,
+      hasMore: faker.random.boolean(),
       items: map(() => {
         return {
           id: faker.random.uuid(),
