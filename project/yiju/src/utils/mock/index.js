@@ -51,7 +51,7 @@ moxios.stubRequest(new RegExp(`${domain}search.*`), {
           img:
             'https://static01.imgkr.com/temp/1f7bb3aa1c8e4f93bc33c2789a064cda.jpg', //faker.image.business(),
         };
-      }, range(1, 21)),
+      }, range(1, 6)),
     };
   },
 });

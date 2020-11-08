@@ -8,6 +8,7 @@ import Shop from '../pages/Shop';
 import Mine from '../pages/Mine';
 import City from '../pages/City';
 import Search from '../pages/Search';
+import Detail from '../pages/Detail';
 import NotFound from '../pages/NotFound';
 
 import withNavigation from '../components/HOC/withNavigation';
@@ -27,6 +28,7 @@ class Router extends PureComponent {
             <Route path='/mine' component={withNavigation(Mine)} />
             <Route path='/city' component={City} />
             <Route path='/search' component={Search} />
+            <Route path='/detail' component={Detail} />
             <Route path='*' component={NotFound} />
           </Switch>
         </App>
