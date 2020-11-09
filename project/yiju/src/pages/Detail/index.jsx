@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { NavBar, Icon } from 'zarm';
+import { NavBar, Icon, Tabs } from 'zarm';
 
 import api from '../../api';
 
@@ -38,6 +38,18 @@ class Detail extends PureComponent {
         />
         <Swiper items={imgs} />
         <p>{title}</p>
+        <Tabs
+          swipeable
+          onChange={(i) => {
+            //console.log(i);
+          }}>
+          <Tabs.Panel title='选项卡1'>
+            <div className='content'>试试点我左滑</div>
+          </Tabs.Panel>
+          <Tabs.Panel title='选项卡2'>
+            <div className='content'>试试点我右滑</div>
+          </Tabs.Panel>
+        </Tabs>
       </>
     );
   }
