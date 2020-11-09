@@ -1,8 +1,16 @@
 import React from 'react';
 import { isNil, isEmpty } from 'ramda';
 
-function Comment({ comment }) {
-  return <div>{comment}</div>;
+function Comment({ username, comment }) {
+  return (
+    <div
+      style={{
+        height: '100px',
+        textAlign: 'center',
+      }}>
+      {username}：{comment}
+    </div>
+  );
 }
 
 function Comments({ items }) {
