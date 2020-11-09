@@ -78,3 +78,24 @@ moxios.stubRequest(new RegExp(`${domain}detail.*`), {
     };
   },
 });
+
+// 评论列表数据
+moxios.stubRequest(new RegExp(`${domain}comment.*`), {
+  status: 200,
+  get response() {
+    return {
+      hasMore: faker.random.boolean(),
+      items: map(() => {
+        return {
+          id: faker.random.uuid(),
+          username: faker.random.word(),
+          comment: faker.random.words(),
+          star: faker.random.number({
+            min: 0,
+            max: 5,
+          }),
+        };
+      }, range(1, 6)),
+    };
+  },
+});

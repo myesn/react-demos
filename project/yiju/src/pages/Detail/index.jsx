@@ -4,9 +4,14 @@ import { NavBar, Icon, Tabs } from 'zarm';
 import api from '../../api';
 
 import Swiper from '../../components/Swiper';
+import Comments from './Comments';
 
 class Detail extends PureComponent {
-  state = {};
+  state = {
+    comment: {
+      items: [],
+    },
+  };
 
   componentDidMount() {
     const { location } = this.props;
@@ -18,6 +23,12 @@ class Detail extends PureComponent {
     api.detail.data(id).then((res) => {
       this.setState({ ...res.data });
     });
+
+    api.comment.data(id).then((res) => {
+      this.setState({
+        comment: res.data,
+      });
+    });
   }
 
   handleLeftClick = () => {
@@ -28,7 +39,8 @@ class Detail extends PureComponent {
 
   render() {
     // 这里就不花过多时间在样式上了，只显示标题
-    const { title, imgs } = this.state;
+    const { title, imgs, comment } = this.state;
+    const { items } = comment;
 
     return (
       <>
@@ -37,17 +49,17 @@ class Detail extends PureComponent {
           title='详情'
         />
         <Swiper items={imgs} />
-        <p>{title}</p>
+
         <Tabs
           swipeable
           onChange={(i) => {
             //console.log(i);
           }}>
-          <Tabs.Panel title='选项卡1'>
-            <div className='content'>试试点我左滑</div>
+          <Tabs.Panel title='房屋信息'>
+            <p>{title}</p>
           </Tabs.Panel>
-          <Tabs.Panel title='选项卡2'>
-            <div className='content'>试试点我右滑</div>
+          <Tabs.Panel title='房屋评价'>
+            <Comments items={items} />
           </Tabs.Panel>
         </Tabs>
       </>
