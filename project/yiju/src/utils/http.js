@@ -5,5 +5,5 @@ export function get(path, params) {
 }
 
 export function post(path, data) {
-  return axios.post('/api/hotdata', data);
+  return axios.post(path, data);
 }

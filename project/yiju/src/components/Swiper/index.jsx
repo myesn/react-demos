@@ -13,7 +13,12 @@ class Index extends PureComponent {
     return items.map((item, i) => {
       return (
         <div key={`slide-${i}`}>
-          <img className={styles.img} src={item} alt={`Slide ${i}`} draggable={false} />
+          <img
+            className={styles.img}
+            src={item}
+            alt={`Slide ${i}`}
+            draggable={false}
+          />
         </div>
       );
     });
@@ -32,6 +37,7 @@ class Index extends PureComponent {
 
 Index.displayName = 'Swiper';
 Index.defaultProps = {
+  items: [],
   autoPlay: true,
   loop: true,
 };

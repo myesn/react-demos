@@ -6,6 +6,9 @@ moxios.install();
 faker.locale = 'zh_CN';
 
 const domain = '/api/';
+const avatar =
+  'http://react-yiju.test.upcdn.net/assets/imgs/5c093f388cb4f012.jpg'; //faker.image.avatar()
+const wallpaper = 'http://react-yiju.test.upcdn.net/assets/imgs/lakesi.jpg'; //faker.image.business()
 
 // 首页-热门数据
 moxios.stubRequest(new RegExp(`${domain}hotdata.*`), {
@@ -15,7 +18,7 @@ moxios.stubRequest(new RegExp(`${domain}hotdata.*`), {
       return {
         id: faker.random.uuid(),
         title: faker.commerce.product(),
-        img: faker.image.avatar(),
+        img: avatar,
         link: faker.internet.url(),
       };
     }, range(1, 5));
@@ -48,10 +51,30 @@ moxios.stubRequest(new RegExp(`${domain}search.*`), {
           houseType: faker.random.words(),
           price: faker.commerce.price(),
           rentType: faker.random.word(),
-          img:
-            'https://static01.imgkr.com/temp/1f7bb3aa1c8e4f93bc33c2789a064cda.jpg', //faker.image.business(),
+          img: wallpaper,
         };
       }, range(1, 6)),
+    };
+  },
+});
+
+// 详情
+moxios.stubRequest(new RegExp(`${domain}detail.*`), {
+  status: 200,
+  get response() {
+    return {
+      imgs: map(() => wallpaper, range(1, 9)),
+      title: faker.name.title(),
+      price: faker.commerce.price(),
+      rentType: faker.random.word(),
+      houseType: faker.random.words(),
+      info: {
+        year: faker.random.word(),
+        type: faker.random.word(),
+        level: faker.random.word(),
+        style: faker.random.word(),
+        orientation: faker.random.word(),
+      },
     };
   },
 });
