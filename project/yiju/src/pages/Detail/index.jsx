@@ -1,5 +1,8 @@
 import React, {PureComponent} from 'react';
 import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+
+import * as collectActions from "../../actions/collect";
 
 import {NavBar, Icon, Tabs} from 'zarm';
 import {concat} from 'ramda';
@@ -59,24 +62,39 @@ class Detail extends PureComponent {
     history.goBack();
   };
 
-  handleCollectClick = () => {
-    const { username } = this.props.userinfo;
+  handleCollectClick = (id) => {
+    const {username} = this.props.userinfo;
+
     if (username) {
       // 实现收藏功能
       console.log(`${username} 收藏`);
-    }else {
+
+      if (this.isCollect(id)) {
+        this.props.actions.removeCollect(id);
+      } else {
+        this.props.actions.addCollect(id);
+      }
+    } else {
       this.props.history.push('/signin');
     }
   };
 
-  handleBuyClick = () => {
-    alert('buy')
+  handleBuyClick = (id) => {
+    alert('buy' + id)
   };
+
+  isCollect = (id) => {
+    const {collect} = this.props;
+
+    return collect.some(x => x === id);
+  }
 
   render() {
     // 这里就不花过多时间在样式上了，只显示标题
-    const {title, imgs, comment} = this.state;
+    const {id, title, imgs, comment} = this.state;
     const {hasMore, items} = comment;
+
+    const isCollect = this.isCollect(id);
 
     return (
       <>
@@ -86,8 +104,8 @@ class Detail extends PureComponent {
         />
         <Swiper items={imgs}/>
         <div>
-          <button onClick={this.handleCollectClick}>收藏</button>
-          <button onClick={this.handleBuyClick}>购买</button>
+          <button onClick={() => this.handleCollectClick(id)}>{isCollect ? '取消收藏' : '收藏'}</button>
+          <button onClick={() => this.handleBuyClick(id)}>购买</button>
         </div>
         <Tabs swipeable>
           <Tabs.Panel title='房屋信息'>
@@ -105,8 +123,15 @@ class Detail extends PureComponent {
 
 function mapStateToProps(state) {
   return {
-    userinfo: state.userinfo
+    userinfo: state.userinfo,
+    collect: state.collect
   }
 }
 
-export default connect(mapStateToProps)(Detail);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(collectActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);
