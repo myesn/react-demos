@@ -18,6 +18,7 @@ class SignIn extends PureComponent {
     })
 
     window.history.back();
+
   };
 
   render() {

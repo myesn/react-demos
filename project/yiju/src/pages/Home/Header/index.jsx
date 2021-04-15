@@ -1,22 +1,25 @@
-import React, { PureComponent } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { NavBar } from 'zarm';
+import React, {PureComponent} from 'react';
+import {Link, withRouter} from 'react-router-dom';
+import {NavBar} from 'zarm';
 
 import Searcher from '../../../components/Searcher';
 import Iconfont from '../../../components/Iconfont';
 import styles from './index.module.scss';
 
-function City({ text }) {
+function City({text}) {
   return (
     <Link className={styles.city} to='/city'>
-      <Iconfont type='iconchengshi' size='sm' />
+      <Iconfont type='iconchengshi' size='sm'/>
       {text}
     </Link>
   );
 }
 
 function Right() {
-  return <Iconfont type='iconcar' />;
+  return (
+    <Link to="/shopcart">
+      <Iconfont type='iconcar'/>
+    </Link>);
 }
 
 class Header extends PureComponent {
@@ -27,7 +30,7 @@ class Header extends PureComponent {
   handleSearcherSubmit = (value) => {
     if (!value) return;
 
-    const { history } = this.props;
+    const {history} = this.props;
 
     this.handleSearcherChange(value);
 
@@ -38,16 +41,16 @@ class Header extends PureComponent {
   };
 
   handleSearcherChange = (value) => {
-    this.setState({ search: value });
+    this.setState({search: value});
   };
 
   render() {
-    const { city } = this.props;
-    const { search } = this.state;
+    const {city} = this.props;
+    const {search} = this.state;
 
     return (
       <NavBar
-        left={<City text={city} />}
+        left={<City text={city}/>}
         title={
           <Searcher
             value={search}
@@ -61,7 +64,7 @@ class Header extends PureComponent {
             }}
           />
         }
-        right={<Right />}
+        right={<Right/>}
       />
     );
   }
